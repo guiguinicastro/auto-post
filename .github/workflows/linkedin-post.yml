@@ -1,0 +1,40 @@
+name: 📢 Post no LinkedIn
+
+on:
+  push:
+    branches:
+      - main        # só dispara em pushes para a branch main
+      - master      # ou master, se for o caso
+
+jobs:
+  post-linkedin:
+    name: Gerar e publicar post
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Faz checkout com histórico para conseguir diff do commit anterior
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      # 2. Configura Python
+      - name: Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 3. Instala dependências
+      - name: Instalar dependências
+        run: pip install requests
+
+      # 4. Roda o script passando a mensagem do commit como variável
+      - name: Publicar no LinkedIn
+        env:
+          GEMINI_API_KEY:   ${{ secrets.GEMINI_API_KEY }}
+          LINKEDIN_TOKEN:   ${{ secrets.LINKEDIN_TOKEN }}
+          LINKEDIN_URN:     ${{ secrets.LINKEDIN_URN }}
+          COMMIT_MESSAGE:   ${{ github.event.head_commit.message }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF_NAME:  ${{ github.ref_name }}
+        run: python post_to_linkedin.py
