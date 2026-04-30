@@ -60,7 +60,7 @@ Regras:
 Retorne APENAS o texto do post, sem aspas nem explicações.
 """
 
-    url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
+    url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
     headers = {"Content-Type": "application/json"}
     params  = {"key": GEMINI_API_KEY}
     body    = {
