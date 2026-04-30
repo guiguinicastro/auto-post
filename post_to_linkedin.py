@@ -12,7 +12,7 @@ import sys
 
 # ── Configurações (via variáveis de ambiente) ────────────────────────────────
 GEMINI_API_KEY   = os.environ["GEMINI_API_KEY"]
-LINKEDIN_TOKEN   = os.environ["AQXB4vOUJG1lebQimuVMK0BFDDTvzMnYj1oDBb0JjwqcNJuP6B4lDO6WWLSimYtvsJuabn70vyFRoMcqxbX3SKj6BM93mJRIwQ65-zwnBSX_yE4tANBi25HXvSz6TfpMOq8ohFwk4Hs7yQVz3b9S5RjLKrB1sjJSb1W0NQjiNIy_n5WIB9MRcG5bLUeDcBE4C1SPXXJhh1vhvyPL_lXfHgG3nt3-k9TxPxvVRNCZbmWIZEwHihJZBD5T7PPPEXdOx2pK0_RlFkuRcUELK8nB0AXX_hw7E2GoPJilWVu-PRvScWdgE_Cs0TmGK5UoFmdx5MnIaByBygLaSSOCD7wiF9IlFCgDeA"]
+LINKEDIN_TOKEN = os.environ["LINKEDIN_TOKEN"]
 LINKEDIN_URN     = os.environ["LINKEDIN_URN"]       # ex: "abc123XYZ"
 
 # ── Informações do push (injetadas pelo GitHub Actions) ──────────────────────
