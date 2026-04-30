@@ -79,7 +79,6 @@ Retorne APENAS o texto do post, sem aspas nem explicações."""
 
 
 def post_to_linkedin(text: str) -> dict:
-    """Publica o texto no LinkedIn via API."""
     url     = "https://api.linkedin.com/v2/ugcPosts"
     headers = {
         "Authorization":             f"Bearer {LINKEDIN_TOKEN}",
@@ -101,7 +100,9 @@ def post_to_linkedin(text: str) -> dict:
         },
     }
 
+    print(f"   Author URN: urn:li:person:{LINKEDIN_URN}")  # ← adicione esta linha
     response = requests.post(url, headers=headers, json=payload, timeout=30)
+    print(f"   Resposta LinkedIn: {response.text}")  # ← e esta linha
     response.raise_for_status()
     return response.json()
 
